@@ -21,5 +21,14 @@ consumer.subscriptions.create({ channel: "ChatChannel", room: "BestRoom" }, {
   }
 })
 
+const chatChannel = consumer.subscriptions.create({ channel: "ChatChannel", room: "Best Room" }, {
+  received(data) {
+    // data => { sent_by: "Paul", body: "これはクールなチャットアプリですね" }
+  }
+})
+
+chatChannel.send({ sent_by: "Paul", body: "This is a cool chat app." })
+
+
 // consumer.subscriptions.create({ channel: "ChatChannel", room: "1stRoom" })
 // consumer.subscriptions.create({ channel: "ChatChannel", room: "2ndRoom" })
