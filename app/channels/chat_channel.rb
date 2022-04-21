@@ -4,7 +4,7 @@ class ChatChannel < ApplicationCable::Channel
   # コンシューマーがこのチャンネルのサブスクライバーになると
   # このコードが呼び出される
   def subscribed
-    stream_from "chat_#{:room}"
+    stream_from "chat_#{params[:room]}"
   end
   
   private
