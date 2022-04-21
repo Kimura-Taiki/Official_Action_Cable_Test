@@ -9,6 +9,7 @@ class ChatChannel < ApplicationCable::Channel
   
   def recieve(data)
     ActionCable.server.broadcast("chat_#{params[:room]}", data)
+  end
   
   private
   def deliver_error_message(e)
